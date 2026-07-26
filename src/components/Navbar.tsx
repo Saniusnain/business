@@ -19,7 +19,7 @@ export default function Navbar() {
     <header
       className={`fixed inset-x-0 top-0 z-[100] border-b backdrop-blur-[14px] transition-[background-color,border-color,box-shadow] duration-300 ${
         elevated
-          ? "border-parchment/90 bg-cream/90 shadow-[0_6px_24px_rgba(51,64,46,0.08)]"
+          ? "border-parchment/90 bg-cream/90 shadow-soft"
           : "border-transparent bg-cream/70"
       }`}
     >
@@ -33,7 +33,7 @@ export default function Navbar() {
             priority
             className="rounded-full"
           />
-          <span className="font-display text-[19px] font-bold tracking-[-0.01em] text-ink">
+          <span className="font-script text-[24px] leading-none text-ink">
             CraveLab
           </span>
         </a>
@@ -55,7 +55,7 @@ export default function Navbar() {
 
         <a
           href="#contact"
-          className="hidden shrink-0 rounded-full bg-leaf px-5 py-2.5 text-sm font-semibold text-white shadow-[0_4px_14px_rgba(95,174,109,0.3)] transition-[transform,box-shadow] duration-200 hover:-translate-y-0.5 hover:shadow-[0_8px_22px_rgba(95,174,109,0.42)] lg:inline-block"
+          className="hidden shrink-0 rounded-full bg-ink px-5 py-2.5 text-sm font-semibold text-white shadow-soft transition-[transform,box-shadow] duration-200 hover:-translate-y-0.5 hover:shadow-med lg:inline-block"
         >
           Get in touch
         </a>
@@ -106,7 +106,7 @@ export default function Navbar() {
             <a
               href="#contact"
               onClick={() => setOpen(false)}
-              className="mt-3 rounded-full bg-leaf px-5 py-3 text-center text-sm font-semibold text-white shadow-[0_4px_14px_rgba(95,174,109,0.3)]"
+              className="mt-3 rounded-full bg-ink px-5 py-3 text-center text-sm font-semibold text-white shadow-soft"
             >
               Get in touch
             </a>

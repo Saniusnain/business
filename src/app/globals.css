@@ -1,29 +1,42 @@
 @import "tailwindcss";
 
 @theme {
-  /* CraveLab brand palette */
-  --color-cream: #f8f7f2;
-  --color-ink: #33402e;
-  --color-body: #6d6d6d;
-  --color-leaf: #5fae6d;
-  --color-leaf-deep: #4a9358;
-  --color-forest: #3e8f52;
-  --color-sage: #a8c8a1;
-  --color-mint: #bfe8c6;
-  --color-amber: #e8a33d;
-  --color-sand: #eae6da;
-  --color-parchment: #e7e2d3;
-  --color-moss: #eef4ec;
-  --color-stone: #9b9b97;
-  --color-fern: #8fa189;
-  --color-celadon: #dce4d6;
-  --color-lichen: #b9c4b4;
-  --color-cocoa: #7a5c47;
-  --color-clay: #d9704f;
-  --color-hedge: #445140;
+  /* CraveLab brand palette — cream base, dark-green ink, blush-pink accent.
+     Token names kept stable; values remapped to brand roles. */
+  --color-cream: #faf3ec; /* primary background */
+  --color-ink: #06481d; /* primary ink: headings, dark sections */
+  --color-body: #7c7568; /* muted body text */
+  --color-leaf: #3a5615; /* supporting green: buttons, green accents */
+  --color-leaf-deep: #06481d; /* darkest green */
+  --color-forest: #516f4b; /* muted / light green text */
+  --color-sage: #efc9cb; /* pink-light: subtle fills, labels */
+  --color-mint: #ecb7c5; /* blush pink: accent text/highlights */
+  --color-amber: #ecb7c5; /* blush pink: accent pops */
+  --color-sand: #ede4d8; /* card borders */
+  --color-parchment: #eae1d6; /* hairlines / dividers */
+  --color-moss: #fbeef0; /* pink-tint: soft hover/callout bg */
+  --color-stone: #a69f91; /* captions / meta */
+  --color-fern: #8fa189; /* muted text on dark green */
+  --color-celadon: #c9d1c0; /* soft text on dark green */
+  --color-lichen: #b9c4b4; /* soft text on dark green */
+  --color-cocoa: #7c7568; /* warm gray */
+  --color-clay: #b85c6c; /* rose: error / "don't" states */
+  --color-hedge: #516f4b; /* border on dark sections */
 
-  --font-display: var(--font-poppins);
-  --font-sans: var(--font-inter);
+  /* Brand kit §06 radius scale — 9 / 14 / 22 / pill */
+  --radius-sm: 9px;
+  --radius-md: 14px;
+  --radius-lg: 22px;
+
+  /* Brand kit shadow scale — soft, diffused, dark-green tinted */
+  --shadow-soft: 0 2px 10px rgba(6, 72, 29, 0.06);
+  --shadow-med: 0 8px 20px rgba(6, 72, 29, 0.1);
+  --shadow-high: 0 16px 36px rgba(6, 72, 29, 0.16);
+
+  --font-display: var(--font-poppins); /* UI headings (Poppins Black) */
+  --font-sans: var(--font-roboto-condensed); /* body / UI text */
+  --font-hero: var(--font-anton); /* big display: hero / H1 */
+  --font-script: var(--font-yellowtail); /* logo wordmark + rare accent */
 }
 
 html {
@@ -33,12 +46,14 @@ html {
 body {
   background: var(--color-cream);
   color: var(--color-body);
+  font-size: 15px;
+  line-height: 1.65;
   -webkit-font-smoothing: antialiased;
   text-rendering: optimizeLegibility;
 }
 
 ::selection {
-  background: var(--color-mint);
+  background: var(--color-moss);
   color: var(--color-ink);
 }
 

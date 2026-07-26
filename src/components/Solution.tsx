@@ -36,13 +36,13 @@ export default function Solution() {
       id="solution"
       className="relative scroll-mt-20 overflow-hidden px-6 py-[120px] md:px-8"
     >
-      <div className="pointer-events-none absolute -left-[100px] top-[120px] h-[420px] w-[420px] rounded-full bg-[radial-gradient(circle_at_50%_50%,rgba(168,200,161,0.3),rgba(168,200,161,0)_70%)] blur-[22px] [animation:floatA_20s_ease-in-out_infinite]" />
+      <div className="pointer-events-none absolute -left-[100px] top-[120px] h-[420px] w-[420px] rounded-full bg-[radial-gradient(circle_at_50%_50%,rgba(81,111,75,0.22),rgba(81,111,75,0)_70%)] blur-[22px] [animation:floatA_20s_ease-in-out_infinite]" />
       <div className="relative z-[2] mx-auto max-w-[1160px]">
         <Eyebrow>Our Solution</Eyebrow>
         <Reveal
           as="h2"
           delay={60}
-          className="mb-5 font-display text-[clamp(28px,3.6vw,44px)] font-bold leading-[1.12] tracking-[-0.015em] text-ink [text-wrap:balance]"
+          className="mb-5 font-display text-[clamp(28px,3.6vw,44px)] font-black leading-[1.12] text-ink [text-wrap:balance]"
         >
           A new category of food innovation.
         </Reveal>
@@ -62,12 +62,12 @@ export default function Solution() {
             <Reveal
               key={p.num}
               delay={p.delay}
-              className="rounded-[20px] border border-sand bg-white p-[34px] shadow-[0_2px_10px_rgba(122,92,71,0.05)] transition-[transform,box-shadow] duration-300 hover:-translate-y-[5px] hover:shadow-[0_16px_36px_rgba(122,92,71,0.1)]"
+              className="rounded-lg border border-sand bg-white p-[34px] shadow-soft transition-[transform,box-shadow] duration-300 hover:-translate-y-[5px] hover:shadow-high"
             >
               <div className="mb-4 font-display text-base font-bold tracking-[0.02em] text-sage">
                 {p.num}
               </div>
-              <h3 className="mb-3 font-display text-[21px] font-semibold text-ink">
+              <h3 className="mb-3 font-display text-[21px] font-black text-ink">
                 {p.title}
               </h3>
               <p className="text-[15px] leading-[1.65] text-body">{p.desc}</p>

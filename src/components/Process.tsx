@@ -47,7 +47,7 @@ export default function Process() {
         <Reveal
           as="h2"
           delay={60}
-          className="mb-[60px] max-w-[720px] font-display text-[clamp(28px,3.6vw,44px)] font-bold leading-[1.12] tracking-[-0.015em] text-ink [text-wrap:balance]"
+          className="mb-[60px] max-w-[720px] font-display text-[clamp(28px,3.6vw,44px)] font-black leading-[1.12] text-ink [text-wrap:balance]"
         >
           A process built for credibility, stage by stage.
         </Reveal>
@@ -57,12 +57,12 @@ export default function Process() {
             <Reveal
               key={step.num}
               delay={step.delay}
-              className="relative rounded-[20px] border border-sand bg-white p-[30px] shadow-[0_2px_10px_rgba(122,92,71,0.05)] transition-[transform,box-shadow] duration-300 hover:-translate-y-[5px] hover:shadow-[0_16px_36px_rgba(122,92,71,0.1)]"
+              className="relative rounded-lg border border-sand bg-white p-[30px] shadow-soft transition-[transform,box-shadow] duration-300 hover:-translate-y-[5px] hover:shadow-high"
             >
-              <div className="mb-5 flex h-10 w-10 items-center justify-center rounded-full bg-leaf font-display text-base font-bold text-white">
+              <div className="mb-5 flex h-10 w-10 items-center justify-center rounded-full bg-ink font-display text-base font-bold text-white">
                 {step.num}
               </div>
-              <h3 className="mb-2.5 font-display text-[19px] font-semibold text-ink">
+              <h3 className="mb-2.5 font-display text-[19px] font-black text-ink">
                 {step.title}
               </h3>
               <p className="text-sm leading-relaxed text-body">{step.desc}</p>
@@ -71,12 +71,12 @@ export default function Process() {
 
           <Reveal
             delay={180}
-            className="relative rounded-[20px] border border-leaf-deep bg-gradient-to-br from-leaf to-leaf-deep p-[30px] shadow-[0_8px_24px_rgba(95,174,109,0.28)] transition-transform duration-300 hover:-translate-y-[5px]"
+            className="relative rounded-lg border border-ink bg-ink p-[30px] shadow-med transition-transform duration-300 hover:-translate-y-[5px]"
           >
             <div className="mb-5 flex h-10 w-10 items-center justify-center rounded-full bg-white/[0.22] font-display text-base font-bold text-white">
               6
             </div>
-            <h3 className="mb-2.5 font-display text-[19px] font-semibold text-white">
+            <h3 className="mb-2.5 font-display text-[19px] font-black text-white">
               Future Clinical Validation
             </h3>
             <p className="text-sm leading-relaxed text-white/90">

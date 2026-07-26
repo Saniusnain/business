@@ -30,7 +30,7 @@ const EMAIL_RE = /^[^@\s]+@[^@\s]+\.[^@\s]+$/;
 type Errors = Partial<Record<"name" | "email" | "role" | "message", boolean>>;
 
 const inputClasses =
-  "w-full rounded-xl border border-parchment bg-cream px-[15px] py-[13px] text-[15px] text-ink outline-none transition-[border-color,box-shadow] duration-200 placeholder:text-stone focus:border-leaf focus:shadow-[0_0_0_3px_rgba(95,174,109,0.15)]";
+  "w-full rounded-xl border border-parchment bg-cream px-[15px] py-[13px] text-[15px] text-ink outline-none transition-[border-color,box-shadow] duration-200 placeholder:text-stone focus:border-leaf focus:shadow-[0_0_0_3px_rgba(6,72,29,0.12)]";
 
 function FieldError({ children }: { children: React.ReactNode }) {
   return <div className="mt-1.5 text-[12.5px] text-clay">{children}</div>;
@@ -102,14 +102,14 @@ export default function Contact() {
       id="contact"
       className="relative scroll-mt-20 overflow-hidden px-6 py-[120px] md:px-8"
     >
-      <div className="pointer-events-none absolute -right-[100px] top-[60px] h-[460px] w-[460px] rounded-full bg-[radial-gradient(circle_at_50%_50%,rgba(168,200,161,0.28),rgba(168,200,161,0)_70%)] blur-[22px] [animation:floatC_20s_ease-in-out_infinite]" />
+      <div className="pointer-events-none absolute -right-[100px] top-[60px] h-[460px] w-[460px] rounded-full bg-[radial-gradient(circle_at_50%_50%,rgba(236,183,197,0.24),rgba(236,183,197,0)_70%)] blur-[22px] [animation:floatC_20s_ease-in-out_infinite]" />
       <div className="relative z-[2] mx-auto grid max-w-[1160px] items-start gap-16 lg:grid-cols-[0.95fr_1.05fr]">
         <div>
           <Eyebrow>Get in Touch</Eyebrow>
           <Reveal
             as="h2"
             delay={60}
-            className="mb-5 font-display text-[clamp(28px,3.6vw,44px)] font-bold leading-[1.12] tracking-[-0.015em] text-ink"
+            className="mb-5 font-display text-[clamp(28px,3.6vw,44px)] font-black leading-[1.12] text-ink"
           >
             Let&apos;s talk.
           </Reveal>
@@ -127,7 +127,7 @@ export default function Contact() {
             {AUDIENCES.map((audience) => (
               <span
                 key={audience}
-                className="rounded-full border border-[#dbe7d6] bg-moss px-[15px] py-2 text-[13px] font-medium text-forest"
+                className="rounded-full border border-sand bg-moss px-[15px] py-2 text-[13px] font-semibold text-ink"
               >
                 {audience}
               </span>
@@ -141,8 +141,8 @@ export default function Contact() {
             >
               <span className="flex h-11 w-11 shrink-0 items-center justify-center rounded-xl bg-leaf/[0.12]">
                 <svg width="20" height="20" viewBox="0 0 24 24" fill="none" aria-hidden="true">
-                  <rect x="3" y="5" width="18" height="14" rx="2.5" stroke="#5FAE6D" strokeWidth="1.8" />
-                  <path d="M4 7l8 6 8-6" stroke="#5FAE6D" strokeWidth="1.8" strokeLinecap="round" />
+                  <rect x="3" y="5" width="18" height="14" rx="2.5" stroke="#3A5615" strokeWidth="1.8" />
+                  <path d="M4 7l8 6 8-6" stroke="#3A5615" strokeWidth="1.8" strokeLinecap="round" />
                 </svg>
               </span>
               <span>
@@ -155,7 +155,7 @@ export default function Contact() {
                 <svg width="20" height="20" viewBox="0 0 24 24" fill="none" aria-hidden="true">
                   <path
                     d="M5 4h3l1.5 4.5-2 1.5a12 12 0 006 6l1.5-2 4.5 1.5V19a2 2 0 01-2 2A16 16 0 013 6a2 2 0 012-2z"
-                    stroke="#5FAE6D"
+                    stroke="#3A5615"
                     strokeWidth="1.8"
                     strokeLinejoin="round"
                   />
@@ -173,7 +173,7 @@ export default function Contact() {
 
         <Reveal
           delay={100}
-          className="rounded-3xl border border-sand bg-white p-6 shadow-[0_12px_40px_rgba(122,92,71,0.1)] sm:p-9"
+          className="rounded-3xl border border-sand bg-white p-6 shadow-high sm:p-9"
         >
           {submitted ? (
             <div className="px-3 py-10 text-center">
@@ -181,14 +181,14 @@ export default function Contact() {
                 <svg width="30" height="30" viewBox="0 0 24 24" fill="none" aria-hidden="true">
                   <path
                     d="M5 12.5l4 4 10-10"
-                    stroke="#5FAE6D"
+                    stroke="#3A5615"
                     strokeWidth="2.4"
                     strokeLinecap="round"
                     strokeLinejoin="round"
                   />
                 </svg>
               </div>
-              <h3 className="mb-2.5 font-display text-[22px] font-semibold text-ink">
+              <h3 className="mb-2.5 font-display text-[22px] font-black text-ink">
                 Thank you for reaching out.
               </h3>
               <p className="mx-auto max-w-[340px] text-[15px] leading-relaxed text-body">
@@ -285,7 +285,7 @@ export default function Contact() {
               <button
                 type="submit"
                 disabled={sending}
-                className="cursor-pointer rounded-xl bg-leaf p-[15px] text-[15px] font-semibold text-white shadow-[0_6px_18px_rgba(95,174,109,0.3)] transition-[transform,box-shadow] duration-200 hover:-translate-y-0.5 hover:shadow-[0_12px_28px_rgba(95,174,109,0.42)] disabled:cursor-wait disabled:opacity-70 disabled:hover:translate-y-0"
+                className="cursor-pointer rounded-xl bg-ink p-[15px] text-[15px] font-semibold text-white shadow-soft transition-[transform,box-shadow] duration-200 hover:-translate-y-0.5 hover:shadow-med disabled:cursor-wait disabled:opacity-70 disabled:hover:translate-y-0"
               >
                 {sending ? "Sending…" : "Send message"}
               </button>

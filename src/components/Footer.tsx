@@ -1,11 +1,7 @@
 "use client";
 
 import Image from "next/image";
-import {
-  CONTACT_EMAIL,
-  CONTACT_PHONE,
-  CONTACT_PHONE_HREF,
-} from "@/lib/site";
+import { CONTACT_EMAIL, CONTACT_PHONE, CONTACT_PHONE_HREF } from "@/lib/site";
 
 const EXPLORE = [
   { href: "#problem", label: "The Problem" },
@@ -37,7 +33,7 @@ export default function Footer() {
                 height={42}
                 className="rounded-full"
               />
-              <span className="font-display text-[19px] font-bold tracking-[-0.01em] text-cream">
+              <span className="font-script text-[24px] leading-none text-cream">
                 CraveLab
               </span>
             </div>
@@ -82,7 +78,10 @@ export default function Footer() {
               <a href={CONTACT_PHONE_HREF} className={linkClasses}>
                 {CONTACT_PHONE}
               </a>
-              <a href="#contact" className={linkClasses}>
+              <a
+                href="https://www.linkedin.com/company/cravelab-pakistan/"
+                className={linkClasses}
+              >
                 LinkedIn
               </a>
               <a href="#contact" className={linkClasses}>
