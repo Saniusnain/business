@@ -30,3 +30,12 @@ Open [http://localhost:3000](http://localhost:3000).
 ## SEO
 
 Set the production domain via the `NEXT_PUBLIC_SITE_URL` environment variable (defaults to `https://cravelab.com`). It drives canonical URLs, Open Graph tags, the sitemap, robots.txt, and JSON-LD structured data.
+
+## Contact form
+
+The form posts to `/api/contact`, which emails the message to `teamcravelab@gmail.com` via Gmail SMTP. Configure it by copying `.env.example` to `.env.local` and setting:
+
+- `GMAIL_USER` — the Gmail address to send from
+- `GMAIL_APP_PASSWORD` — an [app password](https://myaccount.google.com/apppasswords) for that account (requires 2-step verification)
+
+If these are not set (or sending fails), the form falls back to opening WhatsApp (+92 344 4151556) with the visitor's message prefilled, so submissions are never lost.

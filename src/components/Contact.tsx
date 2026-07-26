@@ -6,6 +6,7 @@ import Eyebrow from "@/components/Eyebrow";
 import {
   CONTACT_EMAIL,
   CONTACT_PHONE,
+  CONTACT_WHATSAPP,
 } from "@/lib/site";
 
 const AUDIENCES = [
@@ -35,8 +36,11 @@ function FieldError({ children }: { children: React.ReactNode }) {
   return <div className="mt-1.5 text-[12.5px] text-clay">{children}</div>;
 }
 
+type Delivery = "email" | "whatsapp";
+
 export default function Contact() {
-  const [submitted, setSubmitted] = useState(false);
+  const [submitted, setSubmitted] = useState<Delivery | null>(null);
+  const [sending, setSending] = useState(false);
   const [errors, setErrors] = useState<Errors>({});
   const [form, setForm] = useState({ name: "", email: "", role: "", message: "" });
 
@@ -44,7 +48,22 @@ export default function Contact() {
     e: React.ChangeEvent<HTMLInputElement | HTMLSelectElement | HTMLTextAreaElement>,
   ) => setForm((f) => ({ ...f, [field]: e.target.value }));
 
-  const submit = (e: FormEvent) => {
+  const openWhatsApp = () => {
+    const roleLabel = ROLES.find((r) => r.value === form.role)?.label ?? form.role;
+    const text = [
+      `Hi CraveLab, I'm reaching out via your website.`,
+      `Name: ${form.name.trim()}`,
+      `Email: ${form.email.trim()}`,
+      `I am a: ${roleLabel}`,
+      "",
+      form.message.trim(),
+    ].join("\n");
+    const url = `https://wa.me/${CONTACT_WHATSAPP}?text=${encodeURIComponent(text)}`;
+    const win = window.open(url, "_blank", "noopener,noreferrer");
+    if (!win) window.location.assign(url);
+  };
+
+  const submit = async (e: FormEvent) => {
     e.preventDefault();
     const next: Errors = {};
     if (!form.name.trim()) next.name = true;
@@ -56,7 +75,26 @@ export default function Contact() {
       return;
     }
     setErrors({});
-    setSubmitted(true);
+    setSending(true);
+    try {
+      const res = await fetch("/api/contact", {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify(form),
+      });
+      if (res.ok) {
+        setSubmitted("email");
+        return;
+      }
+      // Email delivery unavailable — hand the message to WhatsApp instead
+      openWhatsApp();
+      setSubmitted("whatsapp");
+    } catch {
+      openWhatsApp();
+      setSubmitted("whatsapp");
+    } finally {
+      setSending(false);
+    }
   };
 
   return (
@@ -154,8 +192,9 @@ export default function Contact() {
                 Thank you for reaching out.
               </h3>
               <p className="mx-auto max-w-[340px] text-[15px] leading-relaxed text-body">
-                We&apos;ve received your message and will get back to you soon.
-                We read every note personally.
+                {submitted === "whatsapp"
+                  ? "We've opened WhatsApp with your message ready to go — just tap send to deliver it to us."
+                  : "We've received your message and will get back to you soon. We read every note personally."}
               </p>
             </div>
           ) : (
@@ -245,9 +284,10 @@ export default function Contact() {
               </div>
               <button
                 type="submit"
-                className="cursor-pointer rounded-xl bg-leaf p-[15px] text-[15px] font-semibold text-white shadow-[0_6px_18px_rgba(95,174,109,0.3)] transition-[transform,box-shadow] duration-200 hover:-translate-y-0.5 hover:shadow-[0_12px_28px_rgba(95,174,109,0.42)]"
+                disabled={sending}
+                className="cursor-pointer rounded-xl bg-leaf p-[15px] text-[15px] font-semibold text-white shadow-[0_6px_18px_rgba(95,174,109,0.3)] transition-[transform,box-shadow] duration-200 hover:-translate-y-0.5 hover:shadow-[0_12px_28px_rgba(95,174,109,0.42)] disabled:cursor-wait disabled:opacity-70 disabled:hover:translate-y-0"
               >
-                Send message
+                {sending ? "Sending…" : "Send message"}
               </button>
             </form>
           )}

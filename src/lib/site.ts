@@ -1,5 +1,5 @@
 export const SITE_URL =
-  process.env.NEXT_PUBLIC_SITE_URL ?? "https://cravelab.com";
+  process.env.NEXT_PUBLIC_SITE_URL ?? "https://business-zeta-blush.vercel.app/";
 
 export const SITE_NAME = "CraveLab";
 
@@ -13,6 +13,8 @@ export const CONTACT_EMAIL = "teamcravelab@gmail.com";
 export const CONTACT_PHONE = "+92 344 4151556";
 
 export const CONTACT_PHONE_HREF = "tel:+923444151556";
+
+export const CONTACT_WHATSAPP = "923444151556";
 
 export const NAV_LINKS = [
   { href: "#problem", label: "The Problem" },
