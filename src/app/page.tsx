@@ -17,6 +17,7 @@ export default function Home() {
   return (
     <div className="relative overflow-x-hidden">
       <Navbar />
+
       <main>
         <Hero />
         <Marquee />
