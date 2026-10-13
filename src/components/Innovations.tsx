@@ -33,10 +33,10 @@ export default function Innovations() {
             <Reveal
               as="a"
               delay={180}
-              href="#contact"
+              href="/shop"
               className="inline-flex items-center gap-[9px] rounded-xl bg-ink px-7 py-3.5 text-[15px] font-semibold text-white shadow-soft transition-[transform,box-shadow] duration-200 hover:-translate-y-[3px] hover:shadow-med"
             >
-              Join the early list <span className="text-[17px]">→</span>
+              Order now <span className="text-[17px]">→</span>
             </Reveal>
           </div>
           <div className="flex flex-col gap-[18px]">

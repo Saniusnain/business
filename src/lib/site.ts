@@ -17,10 +17,11 @@ export const CONTACT_PHONE_HREF = "tel:+923444151556";
 export const CONTACT_WHATSAPP = "923444151556";
 
 export const NAV_LINKS = [
-  { href: "#problem", label: "The Problem" },
-  { href: "#why", label: "Why CraveLab" },
-  { href: "#solution", label: "Our Solution" },
-  { href: "#process", label: "How We Build It" },
-  { href: "#recognition", label: "Recognition" },
-  { href: "#contact", label: "Contact" },
+  { href: "/#problem", label: "The Problem" },
+  { href: "/#why", label: "Why CraveLab" },
+  { href: "/#solution", label: "Our Solution" },
+  { href: "/#process", label: "How We Build It" },
+  { href: "/#recognition", label: "Recognition" },
+  { href: "/shop", label: "Shop" },
+  { href: "/#contact", label: "Contact" },
 ] as const;

@@ -1,20 +1,22 @@
 "use client";
 
 import Image from "next/image";
+import Link from "next/link";
 import { CONTACT_EMAIL, CONTACT_PHONE, CONTACT_PHONE_HREF } from "@/lib/site";
 
 const EXPLORE = [
-  { href: "#problem", label: "The Problem" },
-  { href: "#why", label: "Why CraveLab" },
-  { href: "#solution", label: "Our Solution" },
-  { href: "#process", label: "How We Build It" },
-  { href: "#recognition", label: "Recognition" },
+  { href: "/#problem", label: "The Problem" },
+  { href: "/#why", label: "Why CraveLab" },
+  { href: "/#solution", label: "Our Solution" },
+  { href: "/#process", label: "How We Build It" },
+  { href: "/#recognition", label: "Recognition" },
+  { href: "/shop", label: "Shop" },
 ];
 
 const COMPANY = [
-  { href: "#contact", label: "Contact" },
-  { href: "#contact", label: "Press kit" },
-  { href: "#contact", label: "Careers" },
+  { href: "/#contact", label: "Contact" },
+  { href: "/#contact", label: "Press kit" },
+  { href: "/#contact", label: "Careers" },
 ];
 
 const linkClasses = "text-sm text-celadon transition-colors hover:text-mint";
@@ -49,9 +51,9 @@ export default function Footer() {
             </div>
             <div className="flex flex-col gap-[11px]">
               {EXPLORE.map((link) => (
-                <a key={link.label} href={link.href} className={linkClasses}>
+                <Link key={link.label} href={link.href} className={linkClasses}>
                   {link.label}
-                </a>
+                </Link>
               ))}
             </div>
           </nav>
@@ -61,9 +63,9 @@ export default function Footer() {
             </div>
             <div className="flex flex-col gap-[11px]">
               {COMPANY.map((link) => (
-                <a key={link.label} href={link.href} className={linkClasses}>
+                <Link key={link.label} href={link.href} className={linkClasses}>
                   {link.label}
-                </a>
+                </Link>
               ))}
             </div>
           </nav>
@@ -84,9 +86,9 @@ export default function Footer() {
               >
                 LinkedIn
               </a>
-              <a href="#contact" className={linkClasses}>
+              <Link href="/#contact" className={linkClasses}>
                 Instagram
-              </a>
+              </Link>
             </div>
           </nav>
         </div>

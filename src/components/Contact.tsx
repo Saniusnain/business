@@ -3,6 +3,7 @@
 import { useState, type FormEvent } from "react";
 import Reveal from "@/components/Reveal";
 import Eyebrow from "@/components/Eyebrow";
+import { FieldError, inputClasses } from "@/components/form";
 import {
   CONTACT_EMAIL,
   CONTACT_PHONE,
@@ -28,13 +29,6 @@ const ROLES = [
 const EMAIL_RE = /^[^@\s]+@[^@\s]+\.[^@\s]+$/;
 
 type Errors = Partial<Record<"name" | "email" | "role" | "message", boolean>>;
-
-const inputClasses =
-  "w-full rounded-xl border border-parchment bg-cream px-[15px] py-[13px] text-[15px] text-ink outline-none transition-[border-color,box-shadow] duration-200 placeholder:text-stone focus:border-leaf focus:shadow-[0_0_0_3px_rgba(6,72,29,0.12)]";
-
-function FieldError({ children }: { children: React.ReactNode }) {
-  return <div className="mt-1.5 text-[12.5px] text-clay">{children}</div>;
-}
 
 type Delivery = "email" | "whatsapp";
 
